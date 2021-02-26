@@ -13,3 +13,5 @@ wagtailmenus
 ipython
 django-extensions
 jupyter
+autopep8
+pandas
