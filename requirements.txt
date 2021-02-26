@@ -1,0 +1,15 @@
+coderedcms==0.19.*
+waitress
+
+# django_sendmail_backend enables sending email from your web host server.
+# Remove this if using a different email backend.
+django_sendmail_backend
+
+# To use with MariaDB or MySQL, uncomment the line below:
+#mysqlclient
+# To use with PostgreSQL, uncomment the line below:
+psycopg2
+wagtailmenus
+ipython
+django-extensions
+jupyter
