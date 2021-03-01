@@ -127,7 +127,7 @@ class BookIndexPage(CoderedArticleIndexPage):
     # Only allow ArticlePages beneath this page.
     subpage_types = ["website.BookPage"]
 
-    template = "coderedcms/pages/article_index_page.html"
+    template = "coderedcms/pages/book_chapters_index_page.html"
 
 
 class BooksListingPage(CoderedArticleIndexPage):
