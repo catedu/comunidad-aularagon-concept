@@ -101,11 +101,11 @@ class BookPage(CoderedArticlePage):
 
     promote_panels = [FieldPanel("show_in_menus")] + ArticlePage.promote_panels
 
-    parent_page_types = ["website.BookIndexPage"]
+    parent_page_types = ["website.BookIndexPage", "website.BookPage"]
 
     subpage_types = ["website.BookPage"]
 
-    template = "coderedcms/pages/article_page.html"
+    template = "coderedcms/pages/book_page.html"
 
 
 class BookIndexPage(CoderedArticleIndexPage):
