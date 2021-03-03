@@ -9,9 +9,7 @@ from coderedcms.models import (
     CoderedEmail,
     CoderedFormPage,
     CoderedWebPage,
-    CoderedPage,
 )
-from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel
 
 
@@ -89,59 +87,3 @@ class WebPage(CoderedWebPage):
         verbose_name = "Web Page"
 
     template = "coderedcms/pages/web_page.html"
-
-
-class BookPage(CoderedArticlePage):
-    """
-    Article, suitable for news or blog content.
-    """
-
-    class Meta:
-        verbose_name = "Book Page"
-
-    promote_panels = [FieldPanel("show_in_menus")] + ArticlePage.promote_panels
-
-    parent_page_types = ["website.BookIndexPage", "website.BookPage"]
-
-    subpage_types = ["website.BookPage"]
-
-    template = "coderedcms/pages/book_page.html"
-
-
-class BookIndexPage(CoderedArticleIndexPage):
-    """
-    Shows a list of book chapters.
-    """
-
-    class Meta:
-        verbose_name = "Book index Page"
-
-    promote_panels = [FieldPanel("show_in_menus")] + ArticlePage.promote_panels
-
-    # Override to specify custom index ordering choice/default.
-    index_query_pagemodel = "website.BookPage"
-
-    # Only allow this page to be created beneath an ArticleIndexPage.
-    parent_page_types = ["website.BooksListingPage"]
-
-    # Only allow ArticlePages beneath this page.
-    subpage_types = ["website.BookPage"]
-
-    template = "coderedcms/pages/book_chapters_index_page.html"
-
-
-class BooksListingPage(CoderedArticleIndexPage):
-    """
-    Shows a list of books sub-pages.
-    """
-
-    class Meta:
-        verbose_name = "Books listing Page"
-
-    # Override to specify custom index ordering choice/default.
-    index_query_pagemodel = "website.BookIndexPage"
-
-    # Only allow ArticlePages beneath this page.
-    subpage_types = ["website.BookIndexPage"]
-
-    template = "coderedcms/pages/article_index_page.html"
