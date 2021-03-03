@@ -9,9 +9,7 @@ from coderedcms.models import (
     CoderedEmail,
     CoderedFormPage,
     CoderedWebPage,
-    CoderedPage,
 )
-from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel
 
 

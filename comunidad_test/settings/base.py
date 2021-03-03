@@ -27,6 +27,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     # This project
     'website',
+    'books',
 
     # CodeRed CMS
     'coderedcms',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.table_block',
     'wagtail.admin',
+    'wagtail.api.v2',
 
     # Django
     'django.contrib.admin',
@@ -61,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'rest_framework',
 
     # Third party
     'wagtailmenus',
