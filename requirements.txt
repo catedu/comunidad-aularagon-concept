@@ -15,3 +15,4 @@ django-extensions
 jupyter
 autopep8
 pandas
+black
