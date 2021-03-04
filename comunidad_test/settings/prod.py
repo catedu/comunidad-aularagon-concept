@@ -29,17 +29,19 @@ MANAGERS = ADMINS
 # Email address used to send error messages to ADMINS.
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': 'localhost',
-#         'NAME': 'comunidad_test',
-#         'USER': 'comunidad_test',
-#         'PASSWORD': '',
-#         # If using SSL to connect to a cloud mysql database, spedify the CA as so.
-#         'OPTIONS': { 'ssl': { 'ca': '/path/to/certificate-authority.pem' } },
-#     }
-# }
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("POSTGRES_DB"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": "comunidad-db",
+        "PORT": 5432,
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
