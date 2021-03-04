@@ -16,3 +16,6 @@ jupyter
 autopep8
 pandas
 black
+wagtail-markdown
+wagtailfontawesome
+Pygments

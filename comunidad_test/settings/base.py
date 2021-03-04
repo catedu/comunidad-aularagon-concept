@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     # Third party
     "wagtailmenus",
     "django_extensions",
+    "wagtailmarkdown",
 ]
 
 MIDDLEWARE = [

@@ -12,6 +12,8 @@ class BookPage(CoderedArticlePage):
     class Meta:
         verbose_name = "Book Page"
 
+    show_in_menus_default = True
+
     promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
 
     parent_page_types = ["books.BookIndexPage", "books.BookPage"]
@@ -29,16 +31,18 @@ class BookIndexPage(CoderedArticleIndexPage):
     class Meta:
         verbose_name = "Book index Page"
 
+    show_in_menus_default = True
+
     promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
 
     # Override to specify custom index ordering choice/default.
-    # index_query_pagemodel = "books.BookPage"
+    index_query_pagemodel = "books.BookPage"
 
     # Only allow this page to be created beneath an ArticleIndexPage.
-    # parent_page_types = ["books.BooksListingPage"]
+    parent_page_types = ["books.BooksListingPage"]
 
     # Only allow ArticlePages beneath this page.
-    # subpage_types = ["books.BookPage"]
+    subpage_types = ["books.BookPage"]
 
     template = "coderedcms/pages/book_chapters_index_page.html"
 
@@ -51,10 +55,14 @@ class BooksListingPage(CoderedArticleIndexPage):
     class Meta:
         verbose_name = "Books listing Page"
 
+    show_in_menus_default = True
+
+    promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
+
     # Override to specify custom index ordering choice/default.
-    # index_query_pagemodel = "books.BookIndexPage"
+    index_query_pagemodel = "books.BookIndexPage"
 
     # Only allow ArticlePages beneath this page.
-    # subpage_types = ["books.BookIndexPage"]
+    subpage_types = ["books.BookIndexPage"]
 
     template = "coderedcms/pages/article_index_page.html"
