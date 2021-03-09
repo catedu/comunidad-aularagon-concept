@@ -3,6 +3,13 @@ from coderedcms.models import (
     CoderedArticlePage,
     CoderedArticleIndexPage,
 )
+from coderedcms.blocks import HTML_STREAMBLOCKS
+from wagtailmarkdown.edit_handlers import MarkdownPanel
+from wagtailmarkdown.fields import MarkdownField
+from wagtailmarkdown.blocks import MarkdownBlock
+
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import StreamFieldPanel
 
 class BookPage(CoderedArticlePage):
     """
@@ -10,9 +17,11 @@ class BookPage(CoderedArticlePage):
     """
 
     class Meta:
-        verbose_name = "Book Page"
+        verbose_name = "Página de libro"
 
     show_in_menus_default = True
+
+    body = StreamField([('markdown', MarkdownBlock(icon="code"))] + HTML_STREAMBLOCKS, null=True, blank=True)
 
     promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
 
@@ -20,7 +29,10 @@ class BookPage(CoderedArticlePage):
 
     subpage_types = ["books.BookPage"]
 
-    template = "books/pages/book_page.html"
+    #template = "books/pages/book_page.html"
+    template = "coderedcms/pages/article_page.html"
+    amp_template = "coderedcms/pages/article_page.amp.html"
+    search_template = "coderedcms/pages/article_page.search.html"
 
 
 class BookIndexPage(CoderedArticleIndexPage):
@@ -29,7 +41,7 @@ class BookIndexPage(CoderedArticleIndexPage):
     """
 
     class Meta:
-        verbose_name = "Book index Page"
+        verbose_name = "Índice de libro"
 
     show_in_menus_default = True
 
@@ -44,7 +56,7 @@ class BookIndexPage(CoderedArticleIndexPage):
     # Only allow ArticlePages beneath this page.
     subpage_types = ["books.BookPage"]
 
-    template = "coderedcms/pages/book_chapters_index_page.html"
+    template = "books/pages/book_chapters_index_page.html"
 
 
 class BooksListingPage(CoderedArticleIndexPage):
@@ -53,7 +65,7 @@ class BooksListingPage(CoderedArticleIndexPage):
     """
 
     class Meta:
-        verbose_name = "Books listing Page"
+        verbose_name = "Listado de libros de CATEDU"
 
     show_in_menus_default = True
 

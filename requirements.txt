@@ -19,3 +19,4 @@ black
 wagtail-markdown
 wagtailfontawesome
 Pygments
+black
