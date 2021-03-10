@@ -29,8 +29,8 @@ class BookPage(CoderedArticlePage):
 
     subpage_types = ["books.BookPage"]
 
-    #template = "books/pages/book_page.html"
-    template = "coderedcms/pages/article_page.html"
+    template = "books/pages/book_page.html"
+    #template = "coderedcms/pages/article_page.html"
     amp_template = "coderedcms/pages/article_page.amp.html"
     search_template = "coderedcms/pages/article_page.search.html"
 

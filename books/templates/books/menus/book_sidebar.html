@@ -1,9 +1,19 @@
 {% load menu_tags %}
-
 {% for item in menu_items %}
-<li class="chapter {{ item.active_class }}" data-level="1.{{ forloop.counter }}" data-path="{{ item.href }}">
-    <a href="{{ item.href }}">
-        {{ item.text }}
-    </a>
-</li>
+        <li class="header" data-level="1.0" data-path="{{ item.href }}">
+            <a href="{{ item.href }}">
+                {{ item.text }}
+            </a>
+        </li>
+        {% if item.sub_menu %}
+            {% for sub_item in item.sub_menu.items %}
+              {% with forloop.counter as firstcounter %}
+                <li class="header" data-level="1.{{ firstcounter }}" data-path="{{ sub_item.href }}">
+                    <a href="{{ sub_item.href }}">
+                        {{ sub_item.text }}
+                    </a>
+                </li>
+              {% endwith %}
+            {% endfor %}
+        {% endif %}
 {% endfor %}
