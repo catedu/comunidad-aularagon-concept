@@ -19,6 +19,8 @@ class BookPage(CoderedArticlePage):
     class Meta:
         verbose_name = "Página de libro"
 
+    # TODO: Sobreescribir contexto para añadir menú https://docs.wagtail.io/en/stable/getting_started/tutorial.html#overriding-context
+
     show_in_menus_default = True
 
     body = StreamField([('markdown', MarkdownBlock(icon="code"))] + HTML_STREAMBLOCKS, null=True, blank=True)
@@ -42,6 +44,9 @@ class BookIndexPage(CoderedArticleIndexPage):
 
     class Meta:
         verbose_name = "Índice de libro"
+
+    # TODO: crear un menú automáticamente y asignarlo a esta página. Sobre escribir 
+    # contexto https://docs.wagtail.io/en/stable/getting_started/tutorial.html#overriding-context
 
     show_in_menus_default = True
 

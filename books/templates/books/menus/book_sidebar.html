@@ -12,6 +12,47 @@
                     <a href="{{ sub_item.href }}">
                         {{ sub_item.text }}
                     </a>
+                    
+                    {% if sub_item.sub_menu.items %}
+                    
+                        {% for sub_sub_item in sub_item.sub_menu.items %}
+                            {% with forloop.counter as secondcounter %}
+                                <li class="chapter" data-level="1.{{ firstcounter }}" data-path="{{ sub_sub_item.href }}">
+                                    <a href="{{ sub_sub_item.href }}">
+                                        {{ sub_sub_item.text }}
+                                    </a>
+                                        {% if sub_sub_item.sub_menu.items %}
+                                        <ul class="articles">
+                                            {% for inner_item in sub_sub_item.sub_menu.items %}
+                                                {% with forloop.counter as secondcounter %}
+                                                    <li class="chapter" data-level="1.{{ firstcounter }}.1" data-path="{{ inner_item.href }}">
+                                                        <a href="{{ inner_item.href }}">
+                                                            {{ inner_item.text }}
+                                                        </a>
+                                                        {% if inner_item.sub_menu.items %}
+                                                        <ul class="articles">
+                                                            {% for bottom_item in inner_item.sub_menu.items %}
+                                                                {% with forloop.counter as secondcounter %}
+                                                                    <li class="chapter" data-level="1.{{ firstcounter }}.1.1" data-path="{{ bottom_item.href }}">
+                                                                        <a href="{{ bottom_item.href }}">
+                                                                            {{ bottom_item.text }}
+                                                                        </a>
+                                                                    </li>
+                                                                {% endwith %}
+                                                            {% endfor %}
+                                                        </ul>                                            
+                                                        {% endif %}
+                                                    </li>
+                                                {% endwith %}
+                                            {% endfor %}
+                                        </ul>                                            
+                                        {% endif %}
+                                </li>
+                            {% endwith %}
+                        {% endfor %}
+                    
+                        
+                    {% endif %}
                 </li>
               {% endwith %}
             {% endfor %}
