@@ -1,23 +1,23 @@
 {% load menu_tags %}
 {% for item in menu_items %}
-        <li class="header" data-level="1.0" data-path="{{ item.href }}">
-            <a href="{{ item.href }}">
+        <li class="header">
+            <a href="{{ item.href }}" class="header">
                 {{ item.text }}
             </a>
         </li>
         {% if item.sub_menu %}
             {% for sub_item in item.sub_menu.items %}
               {% with forloop.counter as firstcounter %}
-                <li class="header" data-level="1.{{ firstcounter }}" data-path="{{ sub_item.href }}">
-                    <a href="{{ sub_item.href }}">
+                <li class="header">
+                    <a href="{{ sub_item.href }}" class="header">
                         {{ sub_item.text }}
                     </a>
-                    
+                </li>
                     {% if sub_item.sub_menu.items %}
                     
                         {% for sub_sub_item in sub_item.sub_menu.items %}
                             {% with forloop.counter as secondcounter %}
-                                <li class="chapter" data-level="1.{{ firstcounter }}" data-path="{{ sub_sub_item.href }}">
+                                <li class="chapter">
                                     <a href="{{ sub_sub_item.href }}">
                                         {{ sub_sub_item.text }}
                                     </a>
@@ -53,7 +53,6 @@
                     
                         
                     {% endif %}
-                </li>
               {% endwith %}
             {% endfor %}
         {% endif %}
