@@ -37,7 +37,7 @@
 			<nav role="navigation">
 				<ul class="summary">
 					{% with menu="ajedrez_en_la_escuela" template="books/menus/book_sidebar.html" %}
-					{% flat_menu menu max_levels=5 template=template show_menu_heading=False add_sub_menus_inline=True %}
+					{% flat_menu menu max_levels=5 template=template show_menu_heading=False add_sub_menus_inline=True apply_active_classes=True %}
 					{% endwith %}
 				</ul>
 			</nav>
