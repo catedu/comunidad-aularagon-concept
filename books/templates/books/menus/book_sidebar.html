@@ -21,7 +21,7 @@
     {% if sub_sub_item.sub_menu.items %}
     <ul class="articles">
         {% for inner_item in sub_sub_item.sub_menu.items %}
-        <li class="chapter {{ inner_item.active_class }}" data-level="1.{{ firstcounter }}.1"
+        <li class="chapter {{ inner_item.active_class }}" data-level="1.1"
             data-path="{{ inner_item.href }}">
             <a href="{{ inner_item.href }}">
                 {{ inner_item.text }}
@@ -29,7 +29,7 @@
             {% if inner_item.sub_menu.items %}
             <ul class="articles">
                 {% for bottom_item in inner_item.sub_menu.items %}
-                <li class="chapter {{ bottom_item.active_class }}" data-level="1.{{ firstcounter }}.1.1"
+                <li class="chapter {{ bottom_item.active_class }}" data-level="1.1.1"
                     data-path="{{ bottom_item.href }}">
                     <a href="{{ bottom_item.href }}">
                         {{ bottom_item.text }}
