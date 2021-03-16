@@ -3416,7 +3416,7 @@ table {
     list-style: none
 }
 
-.book-summary ul.summary li.header {
+.book-summary ul.summary li.header a.header{
     padding: 10px 15px;
     padding-top: 20px;
     text-transform: uppercase;

@@ -11,10 +11,10 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         //     lang = lang + '/';
         // }
 
-        // // Add slash at the end if not present
-        // if (base.slice(-1) != "/") {
-        //     base = base + "/";
-        // }
+        // Add slash at the end if not present
+        if (base.slice(-1) != "/") {
+            base = base + "/";
+        }
 
         gitbook.toolbar.createButton({
             icon: 'fa fa-edit',
