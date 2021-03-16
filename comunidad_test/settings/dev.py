@@ -23,6 +23,21 @@ DATABASES = {
     }
 }
 
+INSTALLED_APPS += ["debug_toolbar"]
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '0.0.0.0'
+]
+
+def show_toolbar(request):
+        return True
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+}
+
 try:
     from .local_settings import *  # noqa
 except ImportError:

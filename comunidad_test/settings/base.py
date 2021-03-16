@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "wagtailmenus",
     "django_extensions",
     "wagtailmarkdown",
+    "active_link",
 ]
 
 MIDDLEWARE = [

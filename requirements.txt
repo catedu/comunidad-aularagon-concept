@@ -20,3 +20,5 @@ wagtail-markdown
 wagtailfontawesome
 Pygments
 black
+django-active-link
+django-debug-toolbar
