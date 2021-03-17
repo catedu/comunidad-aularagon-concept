@@ -1,3 +1,5 @@
+from django.db import models
+
 from wagtail.admin.edit_handlers import FieldPanel
 from coderedcms.models import (
     CoderedArticlePage,
@@ -60,6 +62,10 @@ class BookIndexPage(CoderedArticleIndexPage):
     # contexto https://docs.wagtail.io/en/stable/getting_started/tutorial.html#overriding-context
 
     show_in_menus_default = True
+
+    flat_menu =  models.CharField(max_length=255, null=True, blank=True)
+
+    content_panels = [FieldPanel("flat_menu")] + CoderedArticleIndexPage.content_panels
 
     promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
 
