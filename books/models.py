@@ -4,6 +4,10 @@ from coderedcms.models import (
     CoderedArticleIndexPage,
 )
 from coderedcms.blocks import HTML_STREAMBLOCKS
+from coderedcms.blocks.content_blocks import (
+    ImageGalleryBlock,
+    ReusableContentBlock
+)
 from wagtailmarkdown.edit_handlers import MarkdownPanel
 from wagtailmarkdown.fields import MarkdownField
 from wagtailmarkdown.blocks import MarkdownBlock
@@ -26,7 +30,11 @@ class BookPage(CoderedArticlePage):
 
     show_in_menus_default = True
 
-    body = StreamField([('markdown', MarkdownBlock(icon="code"))] + HTML_STREAMBLOCKS, null=True, blank=True)
+    body = StreamField([
+        ('markdown', MarkdownBlock(icon="code")),
+        ('reusable_content', ReusableContentBlock()),
+        ('image_gallery', ImageGalleryBlock()),
+        ] + HTML_STREAMBLOCKS, null=True, blank=True)
 
     promote_panels = [FieldPanel("show_in_menus")] + CoderedArticlePage.promote_panels
 
