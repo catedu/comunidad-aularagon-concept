@@ -10,7 +10,7 @@ from wagtailmenus.models import FlatMenu, FlatMenuItem
 def create_menu(sender, instance, created, **kwargs):
     if created:
         try:
-            menu = FlatMenu.objects.create(title=instance.title, handle=slugify(instance.title), site_id=2, max_levels=4)
+            menu = FlatMenu.objects.create(title=instance.title, handle=slugify(instance.title), site_id=2, max_levels=5)
             instance.flat_menu = menu.handle
             instance.save()
             FlatMenuItem.objects.create(link_page_id=instance.pk, menu_id=menu.pk, allow_subnav=1)
