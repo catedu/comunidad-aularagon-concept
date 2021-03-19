@@ -21,3 +21,4 @@ wagtailfontawesome
 Pygments
 black
 django-debug-toolbar
+wagtail-bakery

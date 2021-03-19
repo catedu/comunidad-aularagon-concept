@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     "wagtailmenus",
     "django_extensions",
     "wagtailmarkdown",
+    "bakery",
+    "wagtailbakery",
 ]
 
 MIDDLEWARE = [
@@ -191,3 +193,13 @@ BOOTSTRAP4 = {
 TAGGIT_CASE_INSENSITIVE = True
 
 WAGTAIL_ALLOW_UNICODE_SLUGS = False
+
+# Static Site
+
+BAKERY_MULTISITE = False
+
+BUILD_DIR = '/code/_books/'
+
+BAKERY_VIEWS = (
+	'wagtailbakery.views.AllPublishedPagesView',
+)
