@@ -44,6 +44,12 @@ docker-compose -f docker-compose.local.yml up
 docker-compose up -d
 ```
 
+For running juypterlab in dev mode run:
+
+```bash
+docker exec comunidad-aularagon_web_1 python manage.py shell_plus
+```
+
 ---
 Made with ♥ using [Wagtail](https://wagtail.io/) +
 [CodeRed CMS](https://www.coderedcorp.com/cms/)
