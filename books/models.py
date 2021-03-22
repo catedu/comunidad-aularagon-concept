@@ -56,11 +56,6 @@ class BookPage(CoderedArticlePage):
 
     subpage_types = ["books.BookPage"]
 
-    template = "books/pages/book_page.html"
-    #template = "coderedcms/pages/article_page.html"
-    amp_template = "coderedcms/pages/article_page.amp.html"
-    search_template = "coderedcms/pages/article_page.search.html"
-
 
 class BookIndexPage(CoderedArticleIndexPage):
     """
@@ -95,8 +90,6 @@ class BookIndexPage(CoderedArticleIndexPage):
     # Only allow ArticlePages beneath this page.
     subpage_types = ["books.BookPage"]
 
-    template = "books/pages/book_chapters_index_page.html"
-
 
 class BooksListingPage(CoderedArticleIndexPage):
     """
@@ -115,5 +108,3 @@ class BooksListingPage(CoderedArticleIndexPage):
 
     # Only allow ArticlePages beneath this page.
     subpage_types = ["books.BookIndexPage"]
-
-    template = "coderedcms/pages/article_index_page.html"
