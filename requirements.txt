@@ -10,15 +10,17 @@ django_sendmail_backend
 # To use with PostgreSQL, uncomment the line below:
 psycopg2
 wagtailmenus
-ipython
 django-extensions
-jupyter
 autopep8
 pandas
 black
 wagtail-markdown
 wagtailfontawesome
 Pygments
-black
-django-debug-toolbar
 wagtail-bakery
+
+# dev dependencies
+ipython
+jupyter
+jupyterlab
+django-debug-toolbar

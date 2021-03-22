@@ -24,18 +24,39 @@ DATABASES = {
 }
 
 INSTALLED_APPS += ["debug_toolbar"]
-MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-    '0.0.0.0'
+SHELL_PLUS = "lab"
+
+NOTEBOOK_ARGUMENTS = [
+    "--ip",
+    "0.0.0.0",
+    "--port",
+    "8888",
+    "--allow-root",
+    "--no-browser",
 ]
 
+IPYTHON_ARGUMENTS = [
+    "--ext",
+    "django_extensions.management.notebook_extension",
+    "--debug",
+]
+
+IPYTHON_KERNEL_DISPLAY_NAME = "Django Shell-Plus"
+
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+
+INTERNAL_IPS = ["127.0.0.1", "0.0.0.0"]
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
+
 def show_toolbar(request):
-        return False
+    return True
+
 
 DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
 
 try:
