@@ -38,7 +38,8 @@ class BookPage(CoderedArticlePage):
         num_index = list_pages.index(self)
         context['num_index'] = num_index
         context['prev'] = list_pages[num_index - 1]
-        context['next'] = list_pages[num_index + 1]
+        if context['num_index'] < context['num_pages']:
+            context['next'] = list_pages[num_index + 1]
         return context
 
     show_in_menus_default = True
